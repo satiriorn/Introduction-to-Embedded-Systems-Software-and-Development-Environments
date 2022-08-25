@@ -87,7 +87,7 @@ unsigned char find_maximum(unsigned char* array, unsigned int counter);
  * @brief Finds the minimum of the given array
  *
  * This function takes array and finds minimum.
- * 
+ *
  * @param array The first element of the array to be processed
  *
  * @return minimum The minimum value of array.

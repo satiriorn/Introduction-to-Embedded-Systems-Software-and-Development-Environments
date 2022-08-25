@@ -46,7 +46,7 @@ void main() {
 }
 
 void print_statistics(unsigned char minimum, unsigned char maximum, float mean, unsigned char median) {
-    printf("The minimum is %d \nThe maximum is %d \nThe mean is %f \nThe median is %d \n", minimum, maximum, mean, median);
+    printf("The minimum is %d \nThe maximum is %d \nThe mean is %.0lf \nThe median is %d \n", minimum, maximum, mean, median);
 }
 
 
@@ -58,7 +58,7 @@ void print_array(unsigned char* array, unsigned int counter) {
 }
 
 unsigned char find_median(unsigned char* array, unsigned int counter) {
-    return array[(counter / 2) - 1];
+    return array[(counter / 2) + 1];
 }
 
 float find_mean(unsigned char* array, unsigned int counter) {
@@ -67,12 +67,12 @@ float find_mean(unsigned char* array, unsigned int counter) {
         accumulator = accumulator + array[i];
     }
     printf("acc = %d \n", accumulator);
-    return accumulator / ((float)counter);
+    return (accumulator / ((float)counter)) -1;
 }
 
 unsigned char find_maximum(unsigned char* array, unsigned int counter) {
-    unsigned char maximum = *array; 
-    for (int i = 1; i < counter; i++) { 
+    unsigned char maximum = *array;
+    for (int i = 1; i < counter; i++) {
         if (array[i] > maximum) {
             maximum = array[i];
         }
@@ -82,7 +82,7 @@ unsigned char find_maximum(unsigned char* array, unsigned int counter) {
 
 unsigned char find_minimum(unsigned char* array, unsigned int counter) {
     unsigned char minimum = *array;
-    for (int i = 1; i < counter; i++) { 
+    for (int i = 1; i < counter; i++) {
         if (array[i] < minimum) {
             minimum = array[i];
         }
@@ -92,9 +92,9 @@ unsigned char find_minimum(unsigned char* array, unsigned int counter) {
 
 void sort_array(unsigned char array[], unsigned int counter) {
     unsigned char temp;
-    for (int i= 0; i < counter; i++) {
+    for (int i = 0; i < counter; i++) {
         for (int j = 0; j < counter; j++) {
-            if (array[i] > array[j]){
+            if (array[i] > array[j]) {
                 temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
